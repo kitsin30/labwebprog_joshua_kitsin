@@ -10,27 +10,32 @@
             @method("PATCH")
             <div class="form-group col-md-4 mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" aria-describedby="productHelp">
+                <input type="text" class="form-control" name="name" id="name" value="{{$productData->name}}" aria-describedby="productHelp">
             </div>
 
             <div class="form-group col-md-4 mb-3">
                 <label for="category">Category</label>
                 <select id="category" class="form-control" name="category">
                     @foreach ($categoryData as $category)
-                        <option>{{$category->name}}</option>
+                        @if ($productData->category_id == $category->id)
+                            <option selected>{{$category->name}}</option>
+                        @else
+                            <option>{{$category->name}}</option>
+                        @endif
+
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group col-md-4 mb-3">
                 <label for="detail">Detail</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <textarea class="form-control" id="description" rows="3" name="description">{{$productData->description}}</textarea>
             </div>
 
 
             <div class="form-group col-md-4 mb-3">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" name="price" id="price" aria-describedby="priceHelp">
+                <input type="number" class="form-control" name="price" id="price" value="{{$productData->price}}" aria-describedby="priceHelp">
             </div>
 
             <div class="form-group col-md-4 mb-3">
