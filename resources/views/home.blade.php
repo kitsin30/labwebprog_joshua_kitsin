@@ -3,7 +3,7 @@
 @section('content')
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-        <form class="d-flex" role="search" action={{route("search")}} method="POST">
+        <form class="d-flex" role="search" action={{route("search")}}>
             @csrf
             <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -27,7 +27,7 @@
                                 <div class="card h-100">
                                 <img src="{{asset($product->photo)}}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$product->name}}}</h5>
+                                    <h5 class="card-title">{{$product->name}}</h5>
                                     <p class="card-text">IDR {{$product->price}}</p>
                                 </div>
                                 </div>
