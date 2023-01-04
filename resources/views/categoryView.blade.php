@@ -9,7 +9,7 @@
                     <a href="/product/{{$product->id}}" class="nav-link active">                                <div class="card h-100">
                         <img src="{{asset($product->photo)}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{$product->category_id}}</h5>
+                            <h5 class="card-title">{{$product->name}}</h5>
                             <p class="card-text">IDR {{$product->price}}</p>
                         </div>
                         </div>
