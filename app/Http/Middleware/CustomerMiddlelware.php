@@ -20,6 +20,6 @@ class CustomerMiddlelware
         if(Auth::user() && Auth::user()->role == "customer"){
             return $next($request);
         }
-        return redirect('/home');
+        return redirect('/');
     }
 }

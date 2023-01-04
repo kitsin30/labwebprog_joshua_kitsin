@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class accountController extends Controller
 {
@@ -37,6 +38,11 @@ class accountController extends Controller
                 'email' => 'wrong email or password'
             ]);
         };
+
+        if($request->rememberInput !== null){
+            Cookie::queue('CookieEmail', $request->emailInput, 120);
+            Cookie::queue('CookiePassword',  $request->passwordInput, 120);
+        }
 
         return redirect('home');
     }
@@ -86,7 +92,7 @@ class accountController extends Controller
         $user->dateOfBirth = $request->date;
         $user->country = $request->country;
         $user->save();
-        return redirect('/home');
+        return redirect('/login')->with('message', 'Success');
     }
 
     /**

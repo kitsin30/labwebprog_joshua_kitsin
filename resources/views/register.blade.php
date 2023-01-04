@@ -58,6 +58,7 @@
                   <option>thailand</option>
                   <option>filipina</option>
                   <option>kamboja</option>
+                  <option>singapore</option>
                 </select>
             </div>
 
