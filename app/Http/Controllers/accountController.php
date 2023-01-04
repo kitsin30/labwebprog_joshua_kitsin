@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class accountController extends Controller
 {
@@ -12,9 +13,41 @@ class accountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function authCheck(){
+        if(!Auth::check()){
+            return redirect('/login');
+        }
+
+        return redirect('home');
+    }
+
     public function index()
     {
         return view('register');
+    }
+
+    public function loginAction(Request $request){
+        $data = [
+            'email' => $request->emailInput,
+            'password' => $request->passwordInput
+        ];
+
+        if(!Auth::attempt($data, true)){
+            return redirect()->back()->withErrors([
+                'email' => 'wrong email or password'
+            ]);
+        };
+
+        return redirect('home');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function profileView(){
+        return view('profile');
     }
 
     /**
@@ -46,6 +79,7 @@ class accountController extends Controller
 
         $user = new User();
         $user->name = $request->name;
+        $user->role = "customer";
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->gender = $request->gender;
@@ -58,12 +92,12 @@ class accountController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('profile');
     }
 
     /**

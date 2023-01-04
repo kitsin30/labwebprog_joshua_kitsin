@@ -17,6 +17,14 @@ class TransactionController extends Controller
         //
     }
 
+    public function viewCart(){
+        return view('cart');
+    }
+
+    public function viewHistory(){
+        return view('history');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

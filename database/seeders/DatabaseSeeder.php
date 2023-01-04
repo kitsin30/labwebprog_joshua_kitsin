@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'customer',
-            'email' => 'customer@gmail.com',
+            'role' => 'customer',
+            'email' => 'customer@mail.com',
             'password' => bcrypt('customer123'),
             'gender' => 'male',
             'dateOfBirth' => '2002-01-02',
@@ -34,7 +35,8 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'role' => 'admin',
+            'email' => 'admin@mail.com',
             'password' => bcrypt('admin123'),
             'gender' => 'male',
             'dateOfBirth' => '2002-01-02',
