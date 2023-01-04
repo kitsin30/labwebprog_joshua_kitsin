@@ -15,13 +15,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $productData = DB::table('products')->select('id', 'category_id', 'name', 'price', 'photo')->paginate(10);
+        $productData = DB::table('products')->select('id', 'category_id', 'name', 'price', 'photo')->get();
         return view('home', ['productData'=>$productData]);
     }
     public function search(Request $request)
     {
         $searchData = DB::table('products')->select('id', 'category_id', 'name', 'price', 'photo')->where("name", "like", "%$request->search%")->paginate(10);
-        return view('searchView', ['searchData'=>$searchData]);
+        $searchValue = $request->search;
+        return view('searchView', ['searchData'=>$searchData, 'searchValue'=>$searchValue]);
     }
     /**
      * Show the form for creating a new resource.

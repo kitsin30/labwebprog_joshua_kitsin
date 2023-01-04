@@ -3,11 +3,11 @@
 @section('content')
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-        <form class="d-flex" role="search" action={{route("search")}}>
-            @csrf
-            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+            <form class="d-flex" role="search" action={{route("search")}}>
+                @csrf
+                <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -20,7 +20,7 @@
     <div class="text-end me-5">
         <a href="/manageAddProduct" class="btn btn-primary">add Product</a>
     </div>
-    <div class="text-center">
+    <div class="text-center ms-5 mt-5">
         @foreach ($productData as $product)
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">

@@ -1,7 +1,7 @@
 @extends('format.layout')
 @section('title', 'Product detail')
 @section('content')
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card m-5" style="max-width: 100%;">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="{{asset($product->photo)}}" class="img-fluid rounded-start" alt="...">
@@ -12,7 +12,7 @@
                     <div>
                         <div class="row">
                         <div class="col">
-                            description
+                            description:
                         </div>
                         <div class="col">
                             {{$product->description}}
@@ -22,7 +22,7 @@
                     <div>
                         <div class="row">
                         <div class="col">
-                            price
+                            price:
                         </div>
                         <div class="col">
                             {{$product->price}}
