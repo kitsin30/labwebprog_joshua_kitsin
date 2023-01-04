@@ -48,5 +48,8 @@
                 </div>
             </div>
         @endforeach
+        <div>
+            {{$searchData->links()}}
+        </div>
     </div>
 @endsection

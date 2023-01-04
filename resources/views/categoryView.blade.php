@@ -18,6 +18,8 @@
             </div>
         @endforeach
 
-        {{$productData->links()}}
+        <div>
+            {{$searchData->links()}}
+        </div>
     </div>
 @endsection
