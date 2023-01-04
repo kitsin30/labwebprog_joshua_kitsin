@@ -12,9 +12,9 @@
     </nav>
 
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary ms-5 mt-3">
             <div class="container-fluid">
-                <p class="navbar-brand">Search Result</p>
+                <h3 class="navbar-brand">Search Result</h3>
             </div>
         </nav>
         @foreach ($searchData as $search)

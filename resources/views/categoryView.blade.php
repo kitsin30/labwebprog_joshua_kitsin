@@ -2,7 +2,7 @@
 @section('title', 'Category')
 @section('content')
     <div>
-        <h1>{{$category->name}}</h1>
+        <h3 class="ms-5 mt-3">{{$category->name}}</h3>
         @foreach ($productData as $product)
             <div class="row row-cols-1 row-cols-md-3 g-4 m-3">
                 <div class="col">
